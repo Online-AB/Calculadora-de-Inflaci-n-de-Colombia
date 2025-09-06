@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <!-- Mobile Responsiveness -->
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <!-- Referrer Policy -->
+    <meta name="referrer" content="always" />
+    <!-- SEO Meta Description -->
+    <meta name="description" content="Calculadora de inflación Argentina - Una herramienta simple para conocer el impacto de la inflación en tu dinero. Ingresa valores y obtén resultados precisos al instante." />
+    <!-- Meta Keywords -->
+    <meta name="keywords" content="calculadora de inflación, inflación Argentina, economía, poder adquisitivo, finanzas personales, cálculo de inflación" />
+    <title>Calculadora de Inflación Argentina.</title>
+    <!-- Canonical Tag (empty) -->
+    <link href="" rel="canonical" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #e8f5e9;
+            color: #1b5e20;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(27, 94, 32, 0.25);
+            padding: 2.5rem;
+            max-width: 600px;
+            width: 100%;
+            border: 2px solid #388e3c;
+        }
+        h1 {
+            color: #2e7d32;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        select, input[type="number"] {
+            width: 100%;
+            padding: 0.65rem;
+            margin-bottom: 1.8rem;
+            border-radius: 8px;
+            border: 2px solid #a5d6a7;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        select:focus, input[type="number"]:focus {
+            border-color: #2e7d32;
+            outline: none;
+            background: #e8f5e9;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+            color: #1b5e20;
+        }
+        button {
+            margin-top: 1rem;
+            width: 100%;
+            padding: 1.2rem;
+            background-color: #43a047;
+            border: none;
+            color: white;
+            font-size: 1.15rem;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(67, 160, 71, 0.6);
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2e7d32;
+            box-shadow: 0 6px 12px rgba(46, 125, 50, 0.8);
+        }
+        .result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #c8e6c9;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1b5e20;
+            box-shadow: inset 0 0 5px #81c784;
+        }
+        article {
+            margin-top: 2.8rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            color: #2e7d32;
+        }
+        a.cta-button {
+            display: block;
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1.15rem;
+            font-weight: 700;
+            color: white;
+            background-color: #388e3c;
+            text-decoration: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 14px rgba(56, 142, 60, 0.7);
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+        a.cta-button:hover {
+            background-color: #1b5e20;
+            box-shadow: 0 7px 18px rgba(27, 94, 32, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Inflación Colombia</h1>
+        <select id="citySelector" aria-label="Seleccionar ciudad para calculadora">
+            <option value="https://calculadorade-inflacion.com/index.html" selected>Calculadora de Inflación Argentina</option>
+            <option value="https://calculadorade-inflacion.com/calculadora-ipc-chile.html">Calculadora de la inflación de Chile.</option>
+            <option value="https://calculadorade-inflacion.com/colombia.html">Calculadora de Inflación Colombia.</option>
+            <option value="https://calculadorade-inflacion.com/mexico.html">Calculadora de Inflación México.</option>
+            <option value="https://calculadorade-inflacion.com/paraguay.html">Calculadora de la inflación Paraguay.</option>
+            <option value="https://calculadorade-inflacion.com/peru.html">Calculadora de inflación de Perú.</option>
+            <option value="https://calculadorade-inflacion.com/uruguay.html">Calculadora de inflación Uruguay.</option>
+            <option value="https://calculadorade-inflacion.com/united-state.html">US Inflation Calculator.</option>
+        </select>
+        <label for="amount">Cantidad inicial (en moneda local):</label>
+        <input type="number" id="amount" min="0" step="0.01" placeholder="Ejemplo: 1000" />
+        <label for="startYear">Año inicial:</label>
+        <input type="number" id="startYear" min="1900" max="2100" placeholder="Ejemplo: 2020" />
+        <label for="endYear">Año final:</label>
+        <input type="number" id="endYear" min="1900" max="2100" placeholder="Ejemplo: 2024" />
+        <button onclick="calculateInflation()">Calcular Inflación</button>
+        <div id="result" class="result" aria-live="polite"></div>
+        <a href="https://calculadorade-inflacion.com/index.html" class="cta-button">Calculadora de Inflación Colombia</a>
+        <article>
+            <p>La inflación es un factor económico que afecta el poder adquisitivo del dinero. Esta calculadora permite estimar cómo la inflación puede impactar tus finanzas personales a lo largo de los años. Ingresa la cantidad inicial y los años para obtener una estimación del valor ajustado por inflación.</p>
+        </article>
+    </div>
+    <script>
+        const selector = document.getElementById('citySelector');
+        selector.addEventListener('change', function() {
+            if (this.value) {
+                window.location.href = this.value;
+            }
+        });
+        function calculateInflation() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const startYear = parseInt(document.getElementById('startYear').value);
+            const endYear = parseInt(document.getElementById('endYear').value);
+            const resultDiv = document.getElementById('result');
+            if (!amount || !startYear || !endYear) {
+                resultDiv.textContent = 'Por favor, completa todos los campos.';
+                resultDiv.style.color = '#b71c1c';
+                return;
+            }
+            if (endYear <= startYear) {
+                resultDiv.textContent = 'El año final debe ser mayor que el año inicial.';
+                resultDiv.style.color = '#b71c1c';
+                return;
+            }
+            const years = endYear - startYear;
+            const inflationRate = 0.03; // 3% anual
+            const adjustedAmount = amount * Math.pow(1 + inflationRate, years);
+            resultDiv.style.color = '#1b5e20';
+            resultDiv.textContent = `Cantidad ajustada por inflación para ${years} años: ${adjustedAmount.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
